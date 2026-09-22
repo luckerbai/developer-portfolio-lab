@@ -1,25 +1,25 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query'
-import { getAllProjects, deleteProject } from '@/services/projects.service'
+import { getAllArticles, deleteArticle } from '@/services/articles.service'
 
 const { t } = useI18n()
 const queryClient = useQueryClient()
 
-const { data: projects, isLoading } = useQuery({
-  queryKey: ['admin-projects'],
-  queryFn: getAllProjects,
+const { data: articles, isLoading } = useQuery({
+  queryKey: ['admin-articles'],
+  queryFn: getAllArticles,
 })
 
 const deleteMutation = useMutation({
-  mutationFn: deleteProject,
+  mutationFn: deleteArticle,
   onSuccess: () => {
-    queryClient.invalidateQueries({ queryKey: ['admin-projects'] })
+    queryClient.invalidateQueries({ queryKey: ['admin-articles'] })
   },
 })
 
 function handleDelete(id: string) {
-  if (confirm(t('admin.projects.confirmDelete'))) {
+  if (confirm(t('admin.articles.confirmDelete'))) {
     deleteMutation.mutate(id)
   }
 }
@@ -28,12 +28,12 @@ function handleDelete(id: string) {
 <template>
   <div>
     <div class="flex items-center justify-between mb-6">
-      <h1 class="text-2xl font-bold">{{ t('admin.projects.title') }}</h1>
+      <h1 class="text-2xl font-bold">{{ t('admin.articles.title') }}</h1>
       <RouterLink
-        to="/admin/projects/new"
+        to="/admin/articles/new"
         class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
       >
-        {{ t('admin.projects.newProject') }}
+        {{ t('admin.articles.newArticle') }}
       </RouterLink>
     </div>
 
@@ -46,38 +46,34 @@ function handleDelete(id: string) {
         <thead class="bg-muted/50">
           <tr>
             <th class="px-4 py-3 text-left">{{ t('admin.edit.title') }}</th>
-            <th class="px-4 py-3 text-left">{{ t('admin.projects.status') }}</th>
-            <th class="px-4 py-3 text-left">{{ t('admin.projects.featured') }}</th>
-            <th class="px-4 py-3 text-left">{{ t('admin.projects.updated') }}</th>
+            <th class="px-4 py-3 text-left">{{ t('admin.articles.status') }}</th>
+            <th class="px-4 py-3 text-left">{{ t('admin.articles.published') }}</th>
             <th class="px-4 py-3 text-right">{{ t('admin.projects.actions') }}</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="project in projects" :key="project.id" class="border-t">
-            <td class="px-4 py-3 font-medium">{{ project.title }}</td>
+          <tr v-for="article in articles" :key="article.id" class="border-t">
+            <td class="px-4 py-3 font-medium">{{ article.title }}</td>
             <td class="px-4 py-3">
               <span
                 class="inline-flex items-center rounded-full px-2 py-0.5 text-xs"
-                :class="project.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'"
+                :class="article.status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'"
               >
-                {{ t(`admin.projects.${project.status}`) }}
+                {{ t(`admin.projects.${article.status}`) }}
               </span>
             </td>
-            <td class="px-4 py-3">
-              {{ project.featured ? '⭐' : '—' }}
-            </td>
             <td class="px-4 py-3 text-muted-foreground">
-              {{ new Date(project.updated_at).toLocaleDateString() }}
+              {{ article.published_at ? new Date(article.published_at).toLocaleDateString() : '—' }}
             </td>
             <td class="px-4 py-3 text-right space-x-2">
               <RouterLink
-                :to="`/admin/projects/${project.id}/edit`"
+                :to="`/admin/articles/${article.id}/edit`"
                 class="text-blue-500 hover:underline"
               >
                 {{ t('common.edit') }}
               </RouterLink>
               <button
-                @click="handleDelete(project.id)"
+                @click="handleDelete(article.id)"
                 class="text-red-500 hover:underline"
               >
                 {{ t('common.delete') }}
