@@ -41,3 +41,69 @@ export async function getSkills() {
   if (error) throw error
   return data as Skill[]
 }
+
+// Experience CRUD
+export async function createExperience(input: Partial<Experience>) {
+  const { data, error } = await supabase
+    .from('experiences')
+    .insert(input)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data as Experience
+}
+
+export async function updateExperience(id: string, input: Partial<Experience>) {
+  const { data, error } = await supabase
+    .from('experiences')
+    .update(input)
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data as Experience
+}
+
+export async function deleteExperience(id: string) {
+  const { error } = await supabase
+    .from('experiences')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw error
+}
+
+// Skill CRUD
+export async function createSkill(input: Partial<Skill>) {
+  const { data, error } = await supabase
+    .from('skills')
+    .insert(input)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data as Skill
+}
+
+export async function updateSkill(id: string, input: Partial<Skill>) {
+  const { data, error } = await supabase
+    .from('skills')
+    .update(input)
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data as Skill
+}
+
+export async function deleteSkill(id: string) {
+  const { error } = await supabase
+    .from('skills')
+    .delete()
+    .eq('id', id)
+
+  if (error) throw error
+}

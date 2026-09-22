@@ -85,6 +85,11 @@ export default {
       signingIn: 'Signing in...',
       failed: 'Login failed. Please check your credentials.',
     },
+    resume: {
+      title: 'Resume Management',
+      experiences: 'Work Experiences',
+      skills: 'Skills',
+    },
     dashboard: {
       title: 'Dashboard',
       welcome: 'Welcome back',

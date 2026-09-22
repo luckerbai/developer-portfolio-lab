@@ -85,6 +85,11 @@ export default {
       signingIn: '登录中...',
       failed: '登录失败，请检查邮箱和密码',
     },
+    resume: {
+      title: '简历管理',
+      experiences: '工作经历',
+      skills: '技能',
+    },
     dashboard: {
       title: '仪表盘',
       welcome: '欢迎回来',
