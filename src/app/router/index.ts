@@ -105,6 +105,12 @@ const routes: RouteRecordRaw[] = [
     meta: { title: 'Edit Project', requiresAuth: true },
   },
   {
+    path: '/admin/resume',
+    name: 'admin-resume',
+    component: () => import('@/features/admin/views/AdminResumeView.vue'),
+    meta: { title: 'Manage Resume', requiresAuth: true },
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/components/shared/NotFoundView.vue'),

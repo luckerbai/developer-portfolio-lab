@@ -82,8 +82,11 @@ export default {
       welcome: '欢迎回来',
       logout: '退出登录',
       projects: '项目管理',
+      projectsDesc: '管理你的项目',
       articles: '文章管理',
+      articlesDesc: '管理你的技术文章',
       resume: '简历管理',
+      resumeDesc: '管理简历内容',
     },
     projects: {
       title: '项目管理',
