@@ -120,6 +120,32 @@ export default {
   lab: {
     title: 'Frontend Lab',
     subtitle: 'Interactive demos showcasing modern frontend engineering.',
+    modules: {
+      components: {
+        title: 'Component System',
+        desc: 'UI component library showcase with all states',
+      },
+      dataTable: {
+        title: 'Data Table',
+        desc: 'Complex table with search, filter, sort, and pagination',
+      },
+      commandPalette: {
+        title: 'Command Palette',
+        desc: 'Global command palette like Raycast',
+      },
+      virtualList: {
+        title: 'Virtual List',
+        desc: 'High-performance virtual scrolling with 100k items',
+      },
+      dragBoard: {
+        title: 'Drag & Drop Board',
+        desc: 'Draggable kanban workflow',
+      },
+      dashboard: {
+        title: 'Dashboard',
+        desc: 'Data visualization dashboard',
+      },
+    },
   },
   admin: {
     title: 'Admin Panel',

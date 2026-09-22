@@ -1,50 +1,55 @@
 <script setup lang="ts">
-const labModules = [
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const labModules = computed(() => [
   {
     path: '/lab/components',
-    title: 'Component System',
-    description: 'UI 组件库展示，包含所有组件状态',
+    title: t('lab.modules.components.title'),
+    description: t('lab.modules.components.desc'),
     icon: '🧩',
   },
   {
     path: '/lab/data-table',
-    title: 'Data Table',
-    description: '支持搜索、筛选、排序、分页的复杂表格',
+    title: t('lab.modules.dataTable.title'),
+    description: t('lab.modules.dataTable.desc'),
     icon: '📊',
   },
   {
     path: '/lab/command-palette',
-    title: 'Command Palette',
-    description: '类似 Raycast 的全局命令面板',
+    title: t('lab.modules.commandPalette.title'),
+    description: t('lab.modules.commandPalette.desc'),
     icon: '⌘K',
   },
   {
     path: '/lab/virtual-list',
-    title: 'Virtual List',
-    description: '10 万条数据的高性能虚拟滚动',
+    title: t('lab.modules.virtualList.title'),
+    description: t('lab.modules.virtualList.desc'),
     icon: '📜',
   },
   {
     path: '/lab/drag-board',
-    title: 'Drag & Drop Board',
-    description: '可拖拽的看板工作流',
+    title: t('lab.modules.dragBoard.title'),
+    description: t('lab.modules.dragBoard.desc'),
     icon: '🎯',
   },
   {
     path: '/lab/dashboard',
-    title: 'Dashboard',
-    description: '数据可视化仪表盘',
+    title: t('lab.modules.dashboard.title'),
+    description: t('lab.modules.dashboard.desc'),
     icon: '📈',
   },
-]
+])
 </script>
 
 <template>
   <div>
     <div class="mb-10">
-      <h1 class="text-3xl font-bold tracking-tight mb-2">Frontend Lab</h1>
+      <h1 class="text-3xl font-bold tracking-tight mb-2">{{ t('lab.title') }}</h1>
       <p class="text-muted-foreground">
-        Interactive demos showcasing modern frontend engineering.
+        {{ t('lab.subtitle') }}
       </p>
     </div>
 

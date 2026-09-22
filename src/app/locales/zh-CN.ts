@@ -120,6 +120,32 @@ export default {
   lab: {
     title: '前端实验室',
     subtitle: '展示现代前端工程能力的交互式演示',
+    modules: {
+      components: {
+        title: '组件系统',
+        desc: 'UI 组件库展示，包含所有组件状态',
+      },
+      dataTable: {
+        title: '数据表格',
+        desc: '支持搜索、筛选、排序、分页的复杂表格',
+      },
+      commandPalette: {
+        title: '命令面板',
+        desc: '类似 Raycast 的全局命令面板',
+      },
+      virtualList: {
+        title: '虚拟列表',
+        desc: '10 万条数据的高性能虚拟滚动',
+      },
+      dragBoard: {
+        title: '拖拽看板',
+        desc: '可拖拽的看板工作流',
+      },
+      dashboard: {
+        title: '仪表盘',
+        desc: '数据可视化仪表盘',
+      },
+    },
   },
   admin: {
     title: '后台管理',
