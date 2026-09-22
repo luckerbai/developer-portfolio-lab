@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { useAuth } from '@/composables/useAuth'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -74,6 +75,36 @@ const routes: RouteRecordRaw[] = [
     meta: { title: 'About - Developer Portfolio Lab' },
   },
   {
+    path: '/admin/login',
+    name: 'admin-login',
+    component: () => import('@/features/admin/views/AdminLoginView.vue'),
+    meta: { title: 'Admin Login' },
+  },
+  {
+    path: '/admin',
+    name: 'admin-dashboard',
+    component: () => import('@/features/admin/views/AdminDashboardView.vue'),
+    meta: { title: 'Admin Dashboard', requiresAuth: true },
+  },
+  {
+    path: '/admin/projects',
+    name: 'admin-projects',
+    component: () => import('@/features/admin/views/AdminProjectsView.vue'),
+    meta: { title: 'Manage Projects', requiresAuth: true },
+  },
+  {
+    path: '/admin/projects/new',
+    name: 'admin-project-new',
+    component: () => import('@/features/admin/views/AdminProjectEditView.vue'),
+    meta: { title: 'New Project', requiresAuth: true },
+  },
+  {
+    path: '/admin/projects/:id/edit',
+    name: 'admin-project-edit',
+    component: () => import('@/features/admin/views/AdminProjectEditView.vue'),
+    meta: { title: 'Edit Project', requiresAuth: true },
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/components/shared/NotFoundView.vue'),
@@ -86,7 +117,24 @@ export const router = createRouter({
   routes,
 })
 
-// 全局路由守卫：自动设置页面标题
+// 全局路由守卫：认证检查 + 页面标题
+router.beforeEach(async (to) => {
+  const { isLoggedIn, loading } = useAuth()
+
+  // 等待 auth 初始化完成
+  if (loading.value) {
+    await new Promise(resolve => setTimeout(resolve, 100))
+  }
+
+  if (to.meta.requiresAuth && !isLoggedIn.value) {
+    return { name: 'admin-login' }
+  }
+
+  if (to.name === 'admin-login' && isLoggedIn.value) {
+    return { name: 'admin-dashboard' }
+  }
+})
+
 router.afterEach((to) => {
   document.title = (to.meta.title as string) || 'Developer Portfolio Lab'
 })
