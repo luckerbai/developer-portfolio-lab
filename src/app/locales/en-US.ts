@@ -68,6 +68,14 @@ export default {
     subtitle: 'Interactive demos showcasing modern frontend engineering.',
   },
   admin: {
+    title: 'Admin Panel',
+    nav: {
+      dashboard: 'Dashboard',
+      projects: 'Projects',
+      articles: 'Articles',
+      resume: 'Resume',
+      viewSite: 'View Site',
+    },
     login: {
       title: 'Admin Login',
       subtitle: 'Sign in to manage your content',

@@ -68,6 +68,14 @@ export default {
     subtitle: '展示现代前端工程能力的交互式演示',
   },
   admin: {
+    title: '后台管理',
+    nav: {
+      dashboard: '仪表盘',
+      projects: '项目管理',
+      articles: '文章管理',
+      resume: '简历管理',
+      viewSite: '查看站点',
+    },
     login: {
       title: '后台登录',
       subtitle: '登录以管理内容',
