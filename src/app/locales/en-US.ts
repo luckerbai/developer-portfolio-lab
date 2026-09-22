@@ -74,6 +74,7 @@ export default {
       projects: 'Projects',
       articles: 'Articles',
       resume: 'Resume',
+      settings: 'Settings',
       viewSite: 'View Site',
     },
     login: {
@@ -129,6 +130,19 @@ export default {
       featured: 'Featured Project',
       createProject: 'Create Project',
       updateProject: 'Update Project',
+    },
+    settings: {
+      title: 'Site Settings',
+      general: 'General',
+      profile: 'Profile',
+      contact: 'Contact',
+      siteTitle: 'Site Title',
+      siteDescription: 'Site Description',
+      authorName: 'Author Name',
+      authorTitle: 'Author Title',
+      authorBio: 'Author Bio',
+      email: 'Email',
+      saveSettings: 'Save Settings',
     },
   },
 }

@@ -10,6 +10,7 @@ const navItems = [
   { to: '/admin/projects', key: 'projects', icon: '📁' },
   { to: '/admin/articles', key: 'articles', icon: '📝' },
   { to: '/admin/resume', key: 'resume', icon: '📄' },
+  { to: '/admin/settings', key: 'settings', icon: '⚙️' },
 ]
 
 const isActive = (path: string) => {

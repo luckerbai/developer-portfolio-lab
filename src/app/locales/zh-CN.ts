@@ -74,6 +74,7 @@ export default {
       projects: '项目管理',
       articles: '文章管理',
       resume: '简历管理',
+      settings: '站点配置',
       viewSite: '查看站点',
     },
     login: {
@@ -129,6 +130,19 @@ export default {
       featured: '精选项目',
       createProject: '创建项目',
       updateProject: '更新项目',
+    },
+    settings: {
+      title: '站点配置',
+      general: '常规设置',
+      profile: '个人资料',
+      contact: '联系方式',
+      siteTitle: '站点标题',
+      siteDescription: '站点描述',
+      authorName: '作者姓名',
+      authorTitle: '作者职位',
+      authorBio: '个人简介',
+      email: '邮箱',
+      saveSettings: '保存配置',
     },
   },
 }
