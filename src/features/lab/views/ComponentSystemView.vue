@@ -76,7 +76,7 @@ const { t } = useI18n()
         </div>
         <div>
           <label class="block text-sm font-medium mb-1">{{ t('lab.components.message') }}</label>
-          <textarea rows="3" placeholder="{{ t('lab.components.messagePlaceholder') }}" class="w-full rounded-md border bg-background px-3 py-2 text-sm"></textarea>
+          <textarea rows="3" :placeholder="t('lab.components.messagePlaceholder')" class="w-full rounded-md border bg-background px-3 py-2 text-sm"></textarea>
         </div>
         <button class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
           {{ t('lab.components.submit') }}
