@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
+
+const { t } = useI18n()
 
 const techTags = ['Vue 3', 'TypeScript', 'Vite', 'Web Engineering']
 </script>
@@ -7,11 +10,11 @@ const techTags = ['Vue 3', 'TypeScript', 'Vite', 'Web Engineering']
 <template>
   <section class="py-20 sm:py-28 text-center">
     <p class="text-sm text-muted-foreground mb-4 tracking-wide">
-      Frontend Developer
+      {{ t('home.hero.title') }}
     </p>
 
     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-      专注于现代 Web 应用开发
+      {{ t('home.hero.subtitle') }}
     </h1>
 
     <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
@@ -25,7 +28,7 @@ const techTags = ['Vue 3', 'TypeScript', 'Vite', 'Web Engineering']
     </div>
 
     <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-      正在构建高质量、可维护、响应式的 Web 产品
+      {{ t('home.hero.description') }}
     </p>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -33,13 +36,13 @@ const techTags = ['Vue 3', 'TypeScript', 'Vite', 'Web Engineering']
         to="/projects"
         class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
       >
-        查看项目
+        {{ t('home.hero.viewProjects') }}
       </RouterLink>
       <RouterLink
         to="/resume"
         class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium transition-colors hover:bg-accent"
       >
-        查看简历
+        {{ t('home.hero.viewResume') }}
       </RouterLink>
       <a
         href="https://github.com"

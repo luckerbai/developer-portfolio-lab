@@ -24,13 +24,67 @@ export default {
     hero: {
       title: 'Frontend Developer',
       subtitle: 'Building modern, performant web applications',
+      description: 'Building high-quality, maintainable, responsive web products',
       viewProjects: 'View Projects',
       viewResume: 'View Resume',
     },
     featuredProjects: 'Featured Projects',
-    engineeringMatrix: 'Engineering Matrix',
-    labPreview: 'Frontend Lab',
-    resumePreview: 'Resume Preview',
+    engineeringMatrix: {
+      title: 'Frontend Engineering',
+      subtitle: 'Not just building pages, but engineering practices',
+      items: {
+        architecture: {
+          title: 'Architecture',
+          desc: 'Feature-based modular architecture with clear responsibilities.',
+        },
+        components: {
+          title: 'Components',
+          desc: 'Highly reusable component design with consistent design system.',
+        },
+        state: {
+          title: 'State Management',
+          desc: 'Client and server state separation with Pinia + TanStack Query.',
+        },
+        testing: {
+          title: 'Testing',
+          desc: 'Unit + component + E2E tests for multi-layer quality assurance.',
+        },
+        performance: {
+          title: 'Performance',
+          desc: 'Code splitting, lazy loading, virtual scrolling for better UX.',
+        },
+      },
+    },
+    labPreview: {
+      title: 'Frontend Lab',
+      subtitle: 'Interactive experiments showcasing real frontend engineering',
+      enterLab: 'Enter Lab',
+      items: {
+        virtualList: {
+          title: 'Virtual List',
+          desc: 'High-performance virtual scrolling with 100k items',
+        },
+        commandPalette: {
+          title: 'Command Palette',
+          desc: 'Global command palette like Raycast',
+        },
+        dragBoard: {
+          title: 'Drag & Drop Board',
+          desc: 'Draggable kanban workflow',
+        },
+        dataTable: {
+          title: 'Data Table',
+          desc: 'Complex table with search, filter, and sort',
+        },
+      },
+    },
+    resumePreview: {
+      title: 'Resume Preview',
+      subtitle: 'My experience and skills',
+      experience: 'Experience',
+      skills: 'Skills',
+      viewFullResume: 'View Full Resume',
+    },
   },
   projects: {
     title: 'Projects',

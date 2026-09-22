@@ -23,14 +23,68 @@ export default {
   home: {
     hero: {
       title: '前端开发者',
-      subtitle: '专注于构建现代、高性能的 Web 应用',
+      subtitle: '专注于现代 Web 应用开发',
+      description: '正在构建高质量、可维护、响应式的 Web 产品',
       viewProjects: '查看项目',
       viewResume: '查看简历',
     },
     featuredProjects: '精选项目',
-    engineeringMatrix: '工程能力矩阵',
-    labPreview: '前端实验室',
-    resumePreview: '简历预览',
+    engineeringMatrix: {
+      title: '前端工程化',
+      subtitle: '不仅是写页面，更是工程化实践',
+      items: {
+        architecture: {
+          title: '架构设计',
+          desc: 'Feature-based 模块化架构，职责清晰，易于维护与扩展。',
+        },
+        components: {
+          title: '组件系统',
+          desc: '高可复用的组件设计，一致的设计系统与交互规范。',
+        },
+        state: {
+          title: '状态管理',
+          desc: '客户端状态与服务端状态分离，Pinia + TanStack Query 各司其职。',
+        },
+        testing: {
+          title: '测试体系',
+          desc: '单元测试 + 组件测试 + E2E 测试，多层保障代码质量。',
+        },
+        performance: {
+          title: '性能优化',
+          desc: '代码分割、懒加载、虚拟滚动，持续优化用户体验。',
+        },
+      },
+    },
+    labPreview: {
+      title: '前端实验室',
+      subtitle: '交互式实验，展示真实前端工程能力',
+      enterLab: '进入 Lab',
+      items: {
+        virtualList: {
+          title: '虚拟列表',
+          desc: '10 万条数据高性能虚拟滚动',
+        },
+        commandPalette: {
+          title: '命令面板',
+          desc: '类似 Raycast 的全局命令面板',
+        },
+        dragBoard: {
+          title: '拖拽看板',
+          desc: '可拖拽的看板工作流',
+        },
+        dataTable: {
+          title: '数据表格',
+          desc: '支持搜索、筛选、排序的复杂表格',
+        },
+      },
+    },
+    resumePreview: {
+      title: '简历预览',
+      subtitle: '我的经历与技能',
+      experience: '工作经历',
+      skills: '技能',
+      viewFullResume: '查看完整简历',
+    },
   },
   projects: {
     title: '项目',

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const recentExperiences = [
   { company: 'Company A', position: 'Senior Frontend Developer', period: '2024 — Present' },
   { company: 'Company B', position: 'Frontend Developer', period: '2022 — 2024' },
@@ -10,16 +14,16 @@ const skillTags = ['Vue 3', 'TypeScript', 'Vite', 'Pinia', 'Tailwind CSS', 'Test
 <template>
   <section class="py-16 border-t border-border">
     <div class="mb-10">
-      <h2 class="text-2xl font-bold tracking-tight mb-2">Resume Preview</h2>
+      <h2 class="text-2xl font-bold tracking-tight mb-2">{{ t('home.resumePreview.title') }}</h2>
       <p class="text-muted-foreground">
-        我的经历与技能
+        {{ t('home.resumePreview.subtitle') }}
       </p>
     </div>
 
     <div class="grid gap-10 md:grid-cols-2">
       <div>
         <h3 class="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wide">
-          Experience
+          {{ t('home.resumePreview.experience') }}
         </h3>
         <div class="space-y-4">
           <div v-for="exp in recentExperiences" :key="exp.company">
@@ -33,7 +37,7 @@ const skillTags = ['Vue 3', 'TypeScript', 'Vite', 'Pinia', 'Tailwind CSS', 'Test
 
       <div>
         <h3 class="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wide">
-          Skills
+          {{ t('home.resumePreview.skills') }}
         </h3>
         <div class="flex flex-wrap gap-2">
           <span
@@ -52,7 +56,7 @@ const skillTags = ['Vue 3', 'TypeScript', 'Vite', 'Pinia', 'Tailwind CSS', 'Test
         to="/resume"
         class="inline-flex items-center justify-center rounded-md border border-input px-6 py-3 text-sm font-medium transition-colors hover:bg-accent"
       >
-        查看完整简历 →
+        {{ t('home.resumePreview.viewFullResume') }} →
       </RouterLink>
     </div>
   </section>

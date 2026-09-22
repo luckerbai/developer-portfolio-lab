@@ -1,34 +1,39 @@
 <script setup lang="ts">
-const capabilities = [
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const capabilities = computed(() => [
   {
-    title: 'Architecture',
-    description: 'Feature-based 模块化架构，职责清晰，易于维护与扩展。',
+    title: t('home.engineeringMatrix.items.architecture.title'),
+    description: t('home.engineeringMatrix.items.architecture.desc'),
   },
   {
-    title: 'Components',
-    description: '高可复用的组件设计，一致的设计系统与交互规范。',
+    title: t('home.engineeringMatrix.items.components.title'),
+    description: t('home.engineeringMatrix.items.components.desc'),
   },
   {
-    title: 'State Management',
-    description: '客户端状态与服务端状态分离，Pinia + TanStack Query 各司其职。',
+    title: t('home.engineeringMatrix.items.state.title'),
+    description: t('home.engineeringMatrix.items.state.desc'),
   },
   {
-    title: 'Testing',
-    description: '单元测试 + 组件测试 + E2E 测试，多层保障代码质量。',
+    title: t('home.engineeringMatrix.items.testing.title'),
+    description: t('home.engineeringMatrix.items.testing.desc'),
   },
   {
-    title: 'Performance',
-    description: '代码分割、懒加载、虚拟滚动，持续优化用户体验。',
+    title: t('home.engineeringMatrix.items.performance.title'),
+    description: t('home.engineeringMatrix.items.performance.desc'),
   },
-]
+])
 </script>
 
 <template>
   <section class="py-16 border-t border-border">
     <div class="mb-10">
-      <h2 class="text-2xl font-bold tracking-tight mb-2">Frontend Engineering</h2>
+      <h2 class="text-2xl font-bold tracking-tight mb-2">{{ t('home.engineeringMatrix.title') }}</h2>
       <p class="text-muted-foreground">
-        不仅是写页面，更是工程化实践
+        {{ t('home.engineeringMatrix.subtitle') }}
       </p>
     </div>
 

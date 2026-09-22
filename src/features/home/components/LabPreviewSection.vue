@@ -1,34 +1,39 @@
 <script setup lang="ts">
-const labPreviews = [
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const labPreviews = computed(() => [
   {
-    title: 'Virtual List',
-    description: '10 万条数据高性能虚拟滚动',
+    title: t('home.labPreview.items.virtualList.title'),
+    description: t('home.labPreview.items.virtualList.desc'),
     path: '/lab/virtual-list',
   },
   {
-    title: 'Command Palette',
-    description: '类似 Raycast 的全局命令面板',
+    title: t('home.labPreview.items.commandPalette.title'),
+    description: t('home.labPreview.items.commandPalette.desc'),
     path: '/lab/command-palette',
   },
   {
-    title: 'Drag & Drop Board',
-    description: '可拖拽的看板工作流',
+    title: t('home.labPreview.items.dragBoard.title'),
+    description: t('home.labPreview.items.dragBoard.desc'),
     path: '/lab/drag-board',
   },
   {
-    title: 'Data Table',
-    description: '支持搜索、筛选、排序的复杂表格',
+    title: t('home.labPreview.items.dataTable.title'),
+    description: t('home.labPreview.items.dataTable.desc'),
     path: '/lab/data-table',
   },
-]
+])
 </script>
 
 <template>
   <section class="py-16 border-t border-border">
     <div class="mb-10">
-      <h2 class="text-2xl font-bold tracking-tight mb-2">Frontend Lab</h2>
+      <h2 class="text-2xl font-bold tracking-tight mb-2">{{ t('home.labPreview.title') }}</h2>
       <p class="text-muted-foreground">
-        交互式实验，展示真实前端工程能力
+        {{ t('home.labPreview.subtitle') }}
       </p>
     </div>
 
@@ -51,7 +56,7 @@ const labPreviews = [
         to="/lab"
         class="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4"
       >
-        进入 Lab →
+        {{ t('home.labPreview.enterLab') }} →
       </RouterLink>
     </div>
   </section>
