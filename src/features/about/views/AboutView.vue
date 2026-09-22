@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const socialLinks = [
   { label: 'GitHub', url: 'https://github.com' },
   { label: 'Email', url: 'mailto:hello@example.com' },
@@ -10,45 +14,42 @@ const socialLinks = [
 <template>
   <div class="max-w-2xl">
     <div class="mb-10">
-      <h1 class="text-3xl font-bold tracking-tight mb-6">About Me</h1>
+      <h1 class="text-3xl font-bold tracking-tight mb-6">{{ t('about.title') }}</h1>
       <div class="aspect-square w-32 h-32 rounded-full bg-muted mb-6 flex items-center justify-center text-muted-foreground text-4xl">
         👤
       </div>
       <p class="text-lg leading-relaxed text-muted-foreground">
-        Hi, I'm Lucky — a Frontend Developer with 5+ years of experience
-        building modern web applications.
+        {{ t('about.intro') }}
       </p>
       <p class="mt-4 leading-relaxed text-muted-foreground">
-        I specialize in Vue 3, TypeScript, and building scalable, maintainable
-        frontend architectures. I care deeply about developer experience,
-        clean code, and products that feel fast and delightful to use.
+        {{ t('about.description') }}
       </p>
     </div>
 
     <div class="mb-10">
-      <h2 class="text-xl font-semibold mb-4">What I do</h2>
+      <h2 class="text-xl font-semibold mb-4">{{ t('about.whatIDo') }}</h2>
       <ul class="space-y-3 text-muted-foreground">
         <li class="flex items-start gap-3">
           <span class="mt-1">▸</span>
-          <span>Build performant, accessible web applications</span>
+          <span>{{ t('about.item1') }}</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="mt-1">▸</span>
-          <span>Design component systems and design tokens</span>
+          <span>{{ t('about.item2') }}</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="mt-1">▸</span>
-          <span>Set up CI/CD pipelines and testing strategies</span>
+          <span>{{ t('about.item3') }}</span>
         </li>
         <li class="flex items-start gap-3">
           <span class="mt-1">▸</span>
-          <span>Mentor junior developers and review code</span>
+          <span>{{ t('about.item4') }}</span>
         </li>
       </ul>
     </div>
 
     <div>
-      <h2 class="text-xl font-semibold mb-4">Get in touch</h2>
+      <h2 class="text-xl font-semibold mb-4">{{ t('about.getInTouch') }}</h2>
       <div class="flex flex-wrap gap-3">
         <a
           v-for="link in socialLinks"

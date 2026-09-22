@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // 配置
 const containerHeight = 600
@@ -61,14 +64,14 @@ const renderedCount = computed(() => visibleItems.value.length)
 <template>
   <div>
     <div class="mb-6">
-      <h1 class="text-3xl font-bold tracking-tight mb-2">Virtual List</h1>
+      <h1 class="text-3xl font-bold tracking-tight mb-2">{{ t('lab.modules.virtualList.title') }}</h1>
       <p class="text-muted-foreground mb-4">
-        100,000 items rendered with virtual scrolling
+        {{ t('lab.virtualList.description') }}
       </p>
 
       <!-- 数据量切换 -->
       <div class="flex items-center gap-2 mb-4">
-        <span class="text-sm text-muted-foreground">Data size:</span>
+        <span class="text-sm text-muted-foreground">{{ t('lab.virtualList.dataSize') }}:</span>
         <button
           v-for="size in dataSizes"
           :key="size"
@@ -81,7 +84,7 @@ const renderedCount = computed(() => visibleItems.value.length)
       </div>
 
       <p class="text-sm text-muted-foreground">
-        Total: {{ allItems.length.toLocaleString() }} items · Rendered: {{ renderedCount }} items
+        {{ t('lab.virtualList.total') }}: {{ allItems.length.toLocaleString() }} {{ t('lab.virtualList.items') }} · {{ t('lab.virtualList.rendered') }}: {{ renderedCount }} {{ t('lab.virtualList.items') }}
       </p>
     </div>
 
@@ -117,7 +120,7 @@ const renderedCount = computed(() => visibleItems.value.length)
 
     <div class="mt-4">
       <RouterLink to="/lab" class="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4">
-        ← Back to Lab
+        ← {{ t('common.back') }}
       </RouterLink>
     </div>
   </div>

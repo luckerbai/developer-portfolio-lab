@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Task {
   id: string
@@ -16,7 +19,7 @@ interface Column {
 const columns = ref<Column[]>([
   {
     id: 'todo',
-    title: 'To Do',
+    title: t('lab.dragBoard.todo'),
     tasks: [
       { id: 't1', title: 'Design onboarding flow', tag: 'Design' },
       { id: 't2', title: 'API integration', tag: 'Frontend' },
@@ -24,7 +27,7 @@ const columns = ref<Column[]>([
   },
   {
     id: 'in-progress',
-    title: 'In Progress',
+    title: t('lab.dragBoard.inProgress'),
     tasks: [
       { id: 't3', title: 'Implement dark mode', tag: 'Frontend' },
       { id: 't4', title: 'Write unit tests', tag: 'Testing' },
@@ -32,14 +35,14 @@ const columns = ref<Column[]>([
   },
   {
     id: 'review',
-    title: 'Review',
+    title: t('lab.dragBoard.review'),
     tasks: [
       { id: 't5', title: 'Code review PR #42', tag: 'Process' },
     ],
   },
   {
     id: 'done',
-    title: 'Done',
+    title: t('lab.dragBoard.done'),
     tasks: [
       { id: 't6', title: 'Project setup', tag: 'DevOps' },
       { id: 't7', title: 'Design system tokens', tag: 'Design' },
@@ -85,9 +88,9 @@ function handleDragEnd() {
 <template>
   <div>
     <div class="mb-6">
-      <h1 class="text-3xl font-bold tracking-tight mb-2">Drag & Drop Board</h1>
+      <h1 class="text-3xl font-bold tracking-tight mb-2">{{ t('lab.modules.dragBoard.title') }}</h1>
       <p class="text-muted-foreground">
-        Drag tasks between columns to update their status.
+        {{ t('lab.dragBoard.description') }}
       </p>
     </div>
 
@@ -124,7 +127,7 @@ function handleDragEnd() {
 
     <div class="mt-6">
       <RouterLink to="/lab" class="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4">
-        ← Back to Lab
+        ← {{ t('common.back') }}
       </RouterLink>
     </div>
   </div>

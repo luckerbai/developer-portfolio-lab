@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 // 统计卡片数据
 const stats = [
   { label: 'Total Views', value: '128K', change: '+12.5%', trend: 'up' },
@@ -32,9 +36,9 @@ const sources = [
 <template>
   <div>
     <div class="mb-6">
-      <h1 class="text-3xl font-bold tracking-tight mb-2">Dashboard</h1>
+      <h1 class="text-3xl font-bold tracking-tight mb-2">{{ t('lab.modules.dashboard.title') }}</h1>
       <p class="text-muted-foreground">
-        Analytics overview with charts and metrics.
+        {{ t('lab.dashboard.description') }}
       </p>
     </div>
 
@@ -60,7 +64,7 @@ const sources = [
     <div class="grid gap-6 lg:grid-cols-2 mb-8">
       <!-- 柱状图 -->
       <div class="rounded-lg border p-6">
-        <h3 class="font-semibold mb-6">Monthly Traffic</h3>
+        <h3 class="font-semibold mb-6">{{ t('lab.dashboard.monthlyTraffic') }}</h3>
         <div class="flex items-end justify-between gap-2 h-48">
           <div
             v-for="bar in barData"
@@ -81,7 +85,7 @@ const sources = [
 
       <!-- 流量来源 -->
       <div class="rounded-lg border p-6">
-        <h3 class="font-semibold mb-6">Traffic Sources</h3>
+        <h3 class="font-semibold mb-6">{{ t('lab.dashboard.trafficSources') }}</h3>
         <div class="space-y-4">
           <div v-for="source in sources" :key="source.label">
             <div class="flex items-center justify-between text-sm mb-1">
@@ -102,7 +106,7 @@ const sources = [
 
     <!-- 最近活动 -->
     <div class="rounded-lg border p-6">
-      <h3 class="font-semibold mb-4">Recent Activity</h3>
+      <h3 class="font-semibold mb-4">{{ t('lab.dashboard.recentActivity') }}</h3>
       <div class="space-y-3">
         <div class="flex items-center gap-3 text-sm">
           <span class="w-2 h-2 rounded-full bg-green-500 shrink-0"></span>
@@ -124,7 +128,7 @@ const sources = [
 
     <div class="mt-6">
       <RouterLink to="/lab" class="text-sm text-muted-foreground hover:text-foreground underline underline-offset-4">
-        ← Back to Lab
+        ← {{ t('common.back') }}
       </RouterLink>
     </div>
   </div>
