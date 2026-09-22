@@ -1,39 +1,39 @@
 <script setup lang="ts">
-interface Experience {
-  company: string
-  position: string
-  startDate: string
-  endDate: string
-  summary: string
-}
+import { computed } from 'vue'
+import { useQuery } from '@tanstack/vue-query'
+import { useI18n } from 'vue-i18n'
+import { getExperiences, getSkills } from '@/services/resume.service'
+import { getFeaturedProjects } from '@/services/projects.service'
 
-const skills = [
-  { category: 'Frontend', items: ['Vue 3', 'TypeScript', 'JavaScript', 'HTML5 / CSS3', 'Tailwind CSS'] },
-  { category: 'Engineering', items: ['Vite', 'Pinia', 'Vue Router', 'Testing', 'CI/CD'] },
-]
+const { t } = useI18n()
 
-const experiences: Experience[] = [
-  {
-    company: 'Company A',
-    position: 'Senior Frontend Developer',
-    startDate: '2024',
-    endDate: 'Present',
-    summary: '负责核心产品前端架构与团队技术决策，主导性能优化与组件体系建设。',
-  },
-  {
-    company: 'Company B',
-    position: 'Frontend Developer',
-    startDate: '2022',
-    endDate: '2024',
-    summary: '从 0 到 1 搭建中后台前端体系，负责多个业务线前端开发。',
-  },
-]
+const { data: experiences, isLoading: expLoading } = useQuery({
+  queryKey: ['experiences-public'],
+  queryFn: getExperiences,
+})
 
-const highlightProjects = [
-  'Developer Portfolio Lab — 现代化个人开发者平台',
-  'E-commerce Admin Dashboard — 中后台数据管理系统',
-  'Real-time Collab Board — 多人协作看板',
-]
+const { data: skills, isLoading: skillsLoading } = useQuery({
+  queryKey: ['skills-public'],
+  queryFn: getSkills,
+})
+
+const { data: featuredProjects, isLoading: projLoading } = useQuery({
+  queryKey: ['featured-projects-public'],
+  queryFn: getFeaturedProjects,
+})
+
+// 按 category 分组 skills
+const groupedSkills = computed(() => {
+  if (!skills.value) return []
+  const groups: Record<string, string[]> = {}
+  skills.value.forEach(skill => {
+    if (!groups[skill.category]) {
+      groups[skill.category] = []
+    }
+    groups[skill.category].push(skill.name)
+  })
+  return Object.entries(groups).map(([category, items]) => ({ category, items }))
+})
 </script>
 
 <template>
@@ -41,19 +41,19 @@ const highlightProjects = [
     <!-- 个人简介 -->
     <section class="text-center">
       <h1 class="text-3xl font-bold tracking-tight mb-2">Lucky Zhang</h1>
-      <p class="text-lg text-muted-foreground mb-4">Frontend Developer</p>
+      <p class="text-lg text-muted-foreground mb-4">{{ t('resume.title') }}</p>
       <p class="text-sm text-muted-foreground max-w-xl mx-auto">
         专注于现代 Web 应用开发，热爱构建高质量、可维护的前端产品。
       </p>
     </section>
 
     <!-- 核心技能 -->
-    <section>
+    <section v-if="!skillsLoading">
       <h2 class="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
-        Core Skills
+        {{ t('resume.skills') }}
       </h2>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div v-for="skillGroup in skills" :key="skillGroup.category">
+        <div v-for="skillGroup in groupedSkills" :key="skillGroup.category">
           <h3 class="font-medium mb-3">{{ skillGroup.category }}</h3>
           <div class="flex flex-wrap gap-2">
             <span
@@ -69,43 +69,45 @@ const highlightProjects = [
     </section>
 
     <!-- 工作经历 -->
-    <section>
+    <section v-if="!expLoading">
       <h2 class="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
-        Experience
+        {{ t('resume.experience') }}
       </h2>
       <div class="space-y-6">
-        <div v-for="exp in experiences" :key="exp.company" class="border-b pb-6 last:border-0 last:pb-0">
+        <div v-for="exp in experiences" :key="exp.id" class="border-b pb-6 last:border-0 last:pb-0">
           <div class="flex items-baseline justify-between mb-1">
             <h3 class="font-semibold">{{ exp.position }}</h3>
-            <span class="text-sm text-muted-foreground">{{ exp.startDate }} — {{ exp.endDate }}</span>
+            <span class="text-sm text-muted-foreground">{{ exp.period }}</span>
           </div>
           <p class="text-sm text-muted-foreground mb-2">{{ exp.company }}</p>
-          <p class="text-sm">{{ exp.summary }}</p>
+          <div class="flex flex-wrap gap-1.5 mt-2">
+            <span
+              v-for="tech in exp.tech_stack"
+              :key="tech"
+              class="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs text-secondary-foreground"
+            >
+              {{ tech }}
+            </span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 主要项目 -->
-    <section>
+    <section v-if="!projLoading && featuredProjects">
       <h2 class="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
-        Selected Projects
+        {{ t('home.featuredProjects') }}
       </h2>
       <ul class="space-y-2">
-        <li v-for="project in highlightProjects" :key="project" class="text-sm">
-          · {{ project }}
+        <li v-for="project in featuredProjects" :key="project.id" class="text-sm">
+          · {{ project.title }}
         </li>
       </ul>
     </section>
 
-    <!-- 教育背景 -->
-    <section>
-      <h2 class="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
-        Education
-      </h2>
-      <div>
-        <h3 class="font-medium">Bachelor of Computer Science</h3>
-        <p class="text-sm text-muted-foreground">XXX University · 2020</p>
-      </div>
-    </section>
+    <!-- 加载状态 -->
+    <div v-if="expLoading || skillsLoading" class="py-8 text-center text-muted-foreground">
+      {{ t('common.loading') }}
+    </div>
   </div>
 </template>
