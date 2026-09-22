@@ -66,3 +66,14 @@ export async function deleteArticle(id: string) {
 
   if (error) throw error
 }
+
+export async function getArticleById(id: string) {
+  const { data, error } = await supabase
+    .from('articles')
+    .select('*')
+    .eq('id', id)
+    .single()
+
+  if (error) throw error
+  return data as Article
+}

@@ -122,6 +122,18 @@ const routes: RouteRecordRaw[] = [
         meta: { title: 'Manage Articles' },
       },
       {
+        path: 'articles/new',
+        name: 'admin-article-new',
+        component: () => import('@/features/admin/views/AdminArticleEditView.vue'),
+        meta: { title: 'New Article' },
+      },
+      {
+        path: 'articles/:id/edit',
+        name: 'admin-article-edit',
+        component: () => import('@/features/admin/views/AdminArticleEditView.vue'),
+        meta: { title: 'Edit Article' },
+      },
+      {
         path: 'settings',
         name: 'admin-settings',
         component: () => import('@/features/admin/views/AdminSettingsView.vue'),
