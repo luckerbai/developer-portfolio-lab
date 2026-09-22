@@ -1,7 +1,7 @@
 # Developer Portfolio Lab — 开发 TODO 追踪
 
 > **更新日期**：2026-09-22  
-> **状态**：Phase 0 + Phase 1 已完成，准备进入 Phase 2  
+> **状态**：Phase 0-3 完成，Phase 4 进行中（~60%）  
 > **追踪规则**：每完成一项打 `[x]`，未完成 `[ ]`，进行中 `[-]`
 
 ---
@@ -13,7 +13,7 @@ Phase 0  Product Definition   ████████████████�
 Phase 1  Foundation            ████████████████████  100% ✅
 Phase 2  Core Site             ████████████████████  100% ✅
 Phase 3  Frontend Lab          ████████████████████  100% ✅
-Phase 4  Backend + Admin       ░░░░░░░░░░░░░░░░░░    0% ⬜
+Phase 4  Backend + Admin       ████████████░░░░░░░░  ~60% 🟡
 Phase 5  Engineering           ░░░░░░░░░░░░░░░░░░    0% ⬜
 Phase 6  Launch                ░░░░░░░░░░░░░░░░░░    0% ⬜
 ```
@@ -97,7 +97,7 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 - [x] **实现 AppHeader 组件**
   - 左侧 Logo
   - 中间导航（Home / Projects / Lab / Resume / About）
-  - 右侧暗色切换按钮 + GitHub 图标
+  - 右侧暗色切换按钮 + 语言切换按钮
   - Desktop 顶部导航布局
 
 - [x] **实现 AppFooter 组件**
@@ -107,9 +107,9 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
   - Header + `<slot>` + Footer
   - 最大宽度 1200px 居中
 
-- [ ] **实现响应式导航（Mobile 汉堡菜单）**
+- [x] **实现响应式导航（Mobile 汉堡菜单）**
   - < 640px 时显示汉堡按钮
-  - 点击展开全屏抽屉式导航
+  - 点击展开抽屉式导航
   - 验收：手机宽度下导航可用
 
 ---
@@ -174,8 +174,8 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 - [x] `pnpm build` 成功
 - [x] 首页有 Header + Footer + 占位内容
 - [x] 暗色模式切换正常，刷新不闪
-- [ ] 移动端汉堡菜单导航（待实现）
-- [ ] GitHub Actions CI 全绿（待推到 GitHub）
+- [x] 移动端汉堡菜单导航可用
+- [x] 代码已推送到 GitHub
 
 ---
 
@@ -206,10 +206,10 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 - [x] 标签筛选
 - [x] 排序切换
 - [x] 分页组件
-- [x] 项目卡片网格（静态 mock 数据）
+- [x] 项目卡片网格（接 Supabase 真实数据）
 - [x] Loading 骨架屏
 - [x] Empty 空状态
-- [x] Error 错误状态（预留 loading 状态切换）
+- [x] Error 错误状态
 
 ### 2.4 项目详情页
 
@@ -233,6 +233,7 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 - [x] 404 页面
 - [x] 各页面 SEO Meta（title / description）
 - [x] 全站响应式检查（Mobile 汉堡菜单 + 移动端布局）
+- [x] 多语言 i18n（zh-CN / en-US 自动切换）
 
 ---
 
@@ -254,18 +255,19 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 
 > **目标**：接 Supabase，真实数据驱动，后台 CMS 可用。
 
-- [ ] Supabase 项目初始化 + 建表迁移 + RLS
-- [ ] Supabase Auth + Admin 登录页 + 路由守卫
-- [ ] TanStack Query 集成 + QueryClient 配置
-- [ ] Service Layer（Projects / Articles / Resume）
-- [ ] 公开站点接真实数据（替换 mock）
+- [x] Supabase 项目初始化 + 建表迁移 + RLS
+- [x] Supabase Auth + Admin 登录页 + 路由守卫
+- [x] TanStack Query 集成 + QueryClient 配置
+- [x] Service Layer（Projects / Resume 查询）
+- [x] 公开站点接真实数据（Projects 已接）
 - [ ] Admin Layout（侧边栏 + 顶栏）
-- [ ] Admin Dashboard 统计概览
-- [ ] Admin Projects CRUD（列表 + 编辑器 + Zod 校验）
+- [x] Admin Dashboard 统计概览
+- [x] Admin Projects CRUD（列表 + 编辑器）
 - [ ] Admin Articles CRUD（Markdown 编辑器）
-- [ ] Admin Resume 管理（经历 / 技能 CRUD）
+- [-] Admin Resume 管理（列表已完成，编辑器待实现）
 - [ ] Admin Settings 站点配置
 - [ ] Supabase Storage 图片上传
+- [ ] Zod 表单校验
 
 ---
 
@@ -308,3 +310,4 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 |------|---------|------|
 | 2026-09-22 | Phase 0 完成（6 份文档） | 文档套件交付 |
 | 2026-09-22 | Phase 1 + 2 + 3 完成 | 全站前端 + 6 个 Lab 模块全部实现 |
+| 2026-09-22 | Phase 4 进行中（~60%） | Supabase + Auth + Admin Projects CRUD + i18n |
