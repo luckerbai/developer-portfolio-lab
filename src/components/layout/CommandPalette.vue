@@ -106,6 +106,9 @@ function handleKeydown(e: KeyboardEvent) {
     >
       <div
         v-if="isOpen"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Command palette"
         class="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm"
         @click="close"
       >
@@ -118,10 +121,15 @@ function handleKeydown(e: KeyboardEvent) {
             v-model="searchQuery"
             @keydown="handleKeydown"
             type="text"
+            role="combobox"
+            aria-expanded="true"
+            aria-controls="command-list"
+            aria-autocomplete="list"
+            aria-label="Search commands"
             placeholder="Type a command or search..."
             class="w-full px-4 py-3 border-b bg-transparent outline-none text-sm"
           />
-          <div class="py-2 max-h-[300px] overflow-y-auto">
+          <div id="command-list" class="py-2 max-h-[300px] overflow-y-auto">
             <div
               v-if="filteredCommands.length === 0"
               class="px-4 py-6 text-sm text-muted-foreground text-center"
@@ -134,6 +142,7 @@ function handleKeydown(e: KeyboardEvent) {
               @click="cmd.action(); close()"
               class="w-full px-4 py-2 text-left text-sm transition-colors"
               :class="index === selectedIndex ? 'bg-accent' : 'hover:bg-accent/50'"
+              :aria-current="index === selectedIndex ? 'true' : undefined"
             >
               {{ cmd.title }}
             </button>

@@ -4,9 +4,12 @@ interface ProjectCardProps {
   summary: string
   techStack: string[]
   slug: string
+  coverUrl?: string | null
 }
 
-defineProps<ProjectCardProps>()
+withDefaults(defineProps<ProjectCardProps>(), {
+  coverUrl: null,
+})
 </script>
 
 <template>
@@ -14,8 +17,16 @@ defineProps<ProjectCardProps>()
     :to="`/projects/${slug}`"
     class="group rounded-lg border bg-card p-6 transition-all hover:shadow-md hover:border-foreground/20"
   >
-    <div class="aspect-video rounded-md bg-muted mb-4 flex items-center justify-center text-muted-foreground">
-      <span class="text-sm">Cover</span>
+    <div class="aspect-video rounded-md bg-muted mb-4 flex items-center justify-center overflow-hidden text-muted-foreground">
+      <img
+        v-if="coverUrl"
+        :src="coverUrl"
+        :alt="`${title} cover`"
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover transition-transform group-hover:scale-105"
+      />
+      <span v-else class="text-sm">Cover</span>
     </div>
     <h3 class="font-semibold mb-2 group-hover:underline underline-offset-4">
       {{ title }}

@@ -62,16 +62,16 @@ const saveMutation = useMutation({
         <h2 class="font-semibold">{{ t('admin.settings.general') }}</h2>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.settings.siteTitle') }}</label>
-          <input
+          <label for="settings-site-title" class="block text-sm font-medium mb-1">{{ t('admin.settings.siteTitle') }}</label>
+          <input id="settings-site-title"
             v-model="form.site_title"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
           />
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.settings.siteDescription') }}</label>
-          <textarea
+          <label for="settings-site-description" class="block text-sm font-medium mb-1">{{ t('admin.settings.siteDescription') }}</label>
+          <textarea id="settings-site-description"
             v-model="form.site_description"
             rows="2"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -84,15 +84,15 @@ const saveMutation = useMutation({
 
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('admin.settings.authorName') }}</label>
-            <input
+            <label for="settings-author-name" class="block text-sm font-medium mb-1">{{ t('admin.settings.authorName') }}</label>
+            <input id="settings-author-name"
               v-model="form.author_name"
               class="w-full rounded-md border bg-background px-3 py-2 text-sm"
             />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('admin.settings.authorTitle') }}</label>
-            <input
+            <label for="settings-author-title" class="block text-sm font-medium mb-1">{{ t('admin.settings.authorTitle') }}</label>
+            <input id="settings-author-title"
               v-model="form.author_title"
               class="w-full rounded-md border bg-background px-3 py-2 text-sm"
             />
@@ -100,8 +100,8 @@ const saveMutation = useMutation({
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.settings.authorBio') }}</label>
-          <textarea
+          <label for="settings-author-bio" class="block text-sm font-medium mb-1">{{ t('admin.settings.authorBio') }}</label>
+          <textarea id="settings-author-bio"
             v-model="form.author_bio"
             rows="3"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -113,8 +113,8 @@ const saveMutation = useMutation({
         <h2 class="font-semibold">{{ t('admin.settings.contact') }}</h2>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.settings.email') }}</label>
-          <input
+          <label for="settings-email" class="block text-sm font-medium mb-1">{{ t('admin.settings.email') }}</label>
+          <input id="settings-email"
             v-model="form.email"
             type="email"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -122,8 +122,8 @@ const saveMutation = useMutation({
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">GitHub URL</label>
-          <input
+          <label for="settings-github-url" class="block text-sm font-medium mb-1">GitHub URL</label>
+          <input id="settings-github-url"
             v-model="form.github_url"
             type="url"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -131,8 +131,8 @@ const saveMutation = useMutation({
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">LinkedIn URL</label>
-          <input
+          <label for="settings-linkedin-url" class="block text-sm font-medium mb-1">LinkedIn URL</label>
+          <input id="settings-linkedin-url"
             v-model="form.linkedin_url"
             type="url"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"

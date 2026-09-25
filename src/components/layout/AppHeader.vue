@@ -54,6 +54,7 @@ function toggleLocale() {
         <button
           @click="toggleLocale"
           class="inline-flex items-center justify-center rounded-md w-9 h-9 text-muted-foreground hover:text-foreground transition-colors text-xs font-medium"
+          :aria-label="locale === 'zh-CN' ? 'Switch to English' : '切换到中文'"
           :title="locale === 'zh-CN' ? 'Switch to English' : '切换到中文'"
         >
           {{ locale === 'zh-CN' ? 'EN' : '中' }}
@@ -63,6 +64,7 @@ function toggleLocale() {
         <button
           @click="cycleMode"
           class="inline-flex items-center justify-center rounded-md w-9 h-9 text-muted-foreground hover:text-foreground transition-colors"
+          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
           :title="isDark ? 'Switch to light' : 'Switch to dark'"
         >
           {{ isDark ? '🌙' : '☀️' }}
@@ -77,6 +79,8 @@ function toggleLocale() {
           @click="isMenuOpen = !isMenuOpen"
           class="md:hidden inline-flex items-center justify-center rounded-md w-9 h-9 text-muted-foreground hover:text-foreground"
           :aria-label="isMenuOpen ? 'Close menu' : 'Open menu'"
+          :aria-expanded="isMenuOpen"
+          aria-controls="mobile-nav"
         >
           {{ isMenuOpen ? '✕' : '☰' }}
         </button>
@@ -94,6 +98,7 @@ function toggleLocale() {
     >
       <nav
         v-if="isMenuOpen"
+        id="mobile-nav"
         class="md:hidden border-t border-border bg-background"
       >
         <div class="px-4 py-4 space-y-1">

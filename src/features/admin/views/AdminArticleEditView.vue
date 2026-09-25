@@ -98,8 +98,8 @@ function handleSubmit() {
     <form @submit.prevent="handleSubmit" class="space-y-6">
       <div class="rounded-lg border p-6 space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-1">Title *</label>
-          <input
+          <label for="article-title" class="block text-sm font-medium mb-1">Title *</label>
+          <input id="article-title"
             v-model="form.title"
             required
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -107,8 +107,8 @@ function handleSubmit() {
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">Slug *</label>
-          <input
+          <label for="article-slug" class="block text-sm font-medium mb-1">Slug *</label>
+          <input id="article-slug"
             v-model="form.slug"
             required
             placeholder="e.g. my-first-article"
@@ -117,8 +117,8 @@ function handleSubmit() {
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">Excerpt</label>
-          <textarea
+          <label for="article-excerpt" class="block text-sm font-medium mb-1">Excerpt</label>
+          <textarea id="article-excerpt"
             v-model="form.excerpt"
             rows="2"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -127,9 +127,9 @@ function handleSubmit() {
       </div>
 
       <div class="rounded-lg border p-6">
-        <label class="block text-sm font-medium mb-1">Content (Markdown)</label>
+        <label for="article-content" class="block text-sm font-medium mb-1">Content (Markdown)</label>
         <div class="grid grid-cols-2 gap-4">
-          <textarea
+          <textarea id="article-content"
             v-model="form.content"
             rows="16"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm font-mono"
@@ -149,9 +149,9 @@ function handleSubmit() {
 
       <div class="rounded-lg border p-6 space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-1">Tags</label>
+          <label for="article-tags" class="block text-sm font-medium mb-1">Tags</label>
           <div class="flex gap-2 mb-2">
-            <input
+            <input id="article-tags"
               v-model="tagsInput"
               @keydown.enter.prevent="addTag"
               placeholder="e.g. Vue, TypeScript..."
@@ -183,8 +183,8 @@ function handleSubmit() {
       <div class="rounded-lg border p-6">
         <div class="flex items-center gap-6">
           <div>
-            <label class="block text-sm font-medium mb-1">Status</label>
-            <select
+            <label for="article-status" class="block text-sm font-medium mb-1">Status</label>
+            <select id="article-status"
               v-model="form.status"
               class="rounded-md border bg-background px-3 py-2 text-sm"
             >

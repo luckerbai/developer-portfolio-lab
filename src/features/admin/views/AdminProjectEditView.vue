@@ -118,8 +118,8 @@ function handleSubmit() {
     <form @submit.prevent="handleSubmit" class="space-y-6">
       <div class="rounded-lg border p-6 space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.title') }} *</label>
-          <input
+          <label for="project-title" class="block text-sm font-medium mb-1">{{ t('admin.edit.title') }} *</label>
+          <input id="project-title"
             v-model="form.title"
             required
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -127,8 +127,8 @@ function handleSubmit() {
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">Slug *</label>
-          <input
+          <label for="project-slug" class="block text-sm font-medium mb-1">Slug *</label>
+          <input id="project-slug"
             v-model="form.slug"
             required
             placeholder="e.g. my-awesome-project"
@@ -137,8 +137,8 @@ function handleSubmit() {
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.summary') }}</label>
-          <textarea
+          <label for="project-summary" class="block text-sm font-medium mb-1">{{ t('admin.edit.summary') }}</label>
+          <textarea id="project-summary"
             v-model="form.summary"
             rows="2"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -149,15 +149,15 @@ function handleSubmit() {
       <div class="rounded-lg border p-6 space-y-4">
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('admin.edit.role') }}</label>
-            <input
+            <label for="project-role" class="block text-sm font-medium mb-1">{{ t('admin.edit.role') }}</label>
+            <input id="project-role"
               v-model="form.role"
               class="w-full rounded-md border bg-background px-3 py-2 text-sm"
             />
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('admin.edit.duration') }}</label>
-            <input
+            <label for="project-duration" class="block text-sm font-medium mb-1">{{ t('admin.edit.duration') }}</label>
+            <input id="project-duration"
               v-model="form.duration"
               class="w-full rounded-md border bg-background px-3 py-2 text-sm"
             />
@@ -165,9 +165,9 @@ function handleSubmit() {
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.techStack') }}</label>
+          <label for="project-techstack" class="block text-sm font-medium mb-1">{{ t('admin.edit.techStack') }}</label>
           <div class="flex gap-2 mb-2">
-            <input
+            <input id="project-techstack"
               v-model="techStackInput"
               @keydown.enter.prevent="addTech"
               placeholder="e.g. Vue 3, TypeScript..."
@@ -198,8 +198,8 @@ function handleSubmit() {
 
       <div class="rounded-lg border p-6 space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.problem') }}</label>
-          <textarea
+          <label for="project-problem" class="block text-sm font-medium mb-1">{{ t('admin.edit.problem') }}</label>
+          <textarea id="project-problem"
             v-model="form.problem"
             rows="3"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -207,8 +207,8 @@ function handleSubmit() {
         </div>
 
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.solution') }}</label>
-          <textarea
+          <label for="project-solution" class="block text-sm font-medium mb-1">{{ t('admin.edit.solution') }}</label>
+          <textarea id="project-solution"
             v-model="form.solution"
             rows="3"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -218,16 +218,16 @@ function handleSubmit() {
 
       <div class="rounded-lg border p-6 space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.demoUrl') }}</label>
-          <input
+          <label for="project-demo-url" class="block text-sm font-medium mb-1">{{ t('admin.edit.demoUrl') }}</label>
+          <input id="project-demo-url"
             v-model="form.demo_url"
             type="url"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
           />
         </div>
         <div>
-          <label class="block text-sm font-medium mb-1">{{ t('admin.edit.githubUrl') }}</label>
-          <input
+          <label for="project-github-url" class="block text-sm font-medium mb-1">{{ t('admin.edit.githubUrl') }}</label>
+          <input id="project-github-url"
             v-model="form.github_url"
             type="url"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm"
@@ -238,8 +238,8 @@ function handleSubmit() {
       <div class="rounded-lg border p-6">
         <div class="flex items-center gap-6">
           <div>
-            <label class="block text-sm font-medium mb-1">{{ t('admin.edit.status') }}</label>
-            <select
+            <label for="project-status" class="block text-sm font-medium mb-1">{{ t('admin.edit.status') }}</label>
+            <select id="project-status"
               v-model="form.status"
               class="rounded-md border bg-background px-3 py-2 text-sm"
             >
