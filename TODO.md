@@ -29,7 +29,7 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 ### 1.1 项目脚手架
 
 - [x] **初始化 Vite + Vue 3 + TypeScript 项目**
-  - 目录：`D:\workspace\PersonalWEB`
+  - 目录：`D:\workspace\developer-portfolio-lab`
   - 包管理器：pnpm
   - 模板：`vue-tsc`
   - 验收：`pnpm dev` 能启动，浏览器打开空白页不报错
