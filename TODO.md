@@ -1,7 +1,7 @@
 # Developer Portfolio Lab — 开发 TODO 追踪
 
 > **更新日期**：2026-09-22  
-> **状态**：Phase 0-5 完成，Phase 6 待开始  
+> **状态**：Phase 0-5 完成，Phase 6 进行中（已部署 Vercel）  
 > **追踪规则**：每完成一项打 `[x]`，未完成 `[ ]`，进行中 `[-]`
 
 ---
@@ -291,7 +291,7 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 
 > **目标**：生产环境部署 + 文档完善。
 
-- [ ] 部署到 Vercel / Cloudflare Pages
+- [x] 部署到 Vercel（production：https://developer-portfolio-lab.vercel.app）
 - [ ] 域名 + HTTPS 配置
 - [ ] 完善 README（完整版）
 - [ ] ADR 技术决策记录（5+ 篇）
