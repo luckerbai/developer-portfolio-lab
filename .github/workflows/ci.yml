@@ -71,6 +71,11 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
+      - name: Inject mock env for E2E (fixtures mock all Supabase routes)
+        run: |
+          printf '%s\n' \
+            'VITE_SUPABASE_URL=https://placeholder.supabase.co' \
+            'VITE_SUPABASE_PUBLISHABLE_KEY=placeholder-key' > .env.local
       - run: pnpm e2e
       - name: Upload Playwright report on failure
         uses: actions/upload-artifact@v4

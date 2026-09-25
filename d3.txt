@@ -7,10 +7,6 @@ s1:16 字符: 5
     + FullyQualifiedErrorId : NativeCommandError
  
 Deploying developer-portfolio-lab
-Uploading [--------------------] (0.0B/2.5KB)
-Uploading [========------------] (1014.0B/2.5KB)
-Uploading [==============------] (1.7KB/2.5KB)
-Uploading [====================] (2.5KB/2.5KB)
-  Inspect         https://vercel.com/luckerbais-projects/developer-portfolio-lab/DFqi8JqxxFeStUQbMsUM94s6B6C1
-  Production      https://developer-portfolio-5np04i1c6-luckerbais-projects.vercel.app
+  Inspect         https://vercel.com/luckerbais-projects/developer-portfolio-lab/EWSbey2zM781QsDc2Ns3NGivjhSR
+  Production      https://developer-portfolio-rnkjvrgm0-luckerbais-projects.vercel.app
 Building…
