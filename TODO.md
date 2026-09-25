@@ -293,8 +293,8 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 
 - [x] 部署到 Vercel（production：https://developer-portfolio-lab.vercel.app）
 - [ ] 域名 + HTTPS 配置
-- [ ] 完善 README（完整版）
-- [ ] ADR 技术决策记录（5+ 篇）
+- [x] 完善 README（完整版：截图 + 技术栈 + 部署指南）
+- [x] ADR 技术决策记录（6 篇：docs/adr/ADR-001~006）
 - [ ] Sitemap / robots.txt / OG 完善
 - [ ] 简历 PDF 导出
 - [ ] Engineering Journal 页面
