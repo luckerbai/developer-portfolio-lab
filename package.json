@@ -42,6 +42,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.11.0",
     "jsdom": "^30.1.0",
+    "lighthouse": "^13.5.0",
     "prettier": "^3.9.8",
     "shadcn-vue": "^2.8.2",
     "typescript": "~6.0.2",

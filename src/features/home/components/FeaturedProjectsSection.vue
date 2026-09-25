@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import { useQuery } from '@tanstack/vue-query'
 import ProjectCard from '@/components/shared/ProjectCard.vue'
+import LoadingSkeleton from '@/components/shared/LoadingSkeleton.vue'
 import { getFeaturedProjects } from '@/services/projects.service'
 
 const { t } = useI18n()
@@ -21,11 +22,10 @@ const { data: featuredProjects, isLoading } = useQuery({
       </p>
     </div>
 
-    <div v-if="isLoading" class="py-12 text-center text-muted-foreground">
-      {{ t('common.loading') }}
-    </div>
+    <!-- 骨架 count 与当前 featured 数据量对齐：loading → 内容高度一致，避免 CLS（数据增加时同步更新） -->
+    <LoadingSkeleton v-if="isLoading" :count="2" />
 
-    <div v-else class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div v-else-if="featuredProjects?.length" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <ProjectCard
         v-for="project in featuredProjects"
         :key="project.id"

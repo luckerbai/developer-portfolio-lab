@@ -1,7 +1,7 @@
 # Developer Portfolio Lab — 开发 TODO 追踪
 
 > **更新日期**：2026-09-22  
-> **状态**：Phase 0-3 完成，Phase 4 进行中（~60%）  
+> **状态**：Phase 0-5 完成，Phase 6 待开始  
 > **追踪规则**：每完成一项打 `[x]`，未完成 `[ ]`，进行中 `[-]`
 
 ---
@@ -14,7 +14,7 @@ Phase 1  Foundation            ████████████████�
 Phase 2  Core Site             ████████████████████  100% ✅
 Phase 3  Frontend Lab          ████████████████████  100% ✅
 Phase 4  Backend + Admin       ████████████░░░░░░░░  ~60% 🟡
-Phase 5  Engineering           ░░░░░░░░░░░░░░░░░░    0% ⬜
+Phase 5  Engineering           ████████████████████  100% ✅
 Phase 6  Launch                ░░░░░░░░░░░░░░░░░░    0% ⬜
 ```
 
@@ -275,16 +275,15 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 
 > **目标**：测试体系 + 性能 + 可访问性达标。
 
-- [ ] Utils 单元测试
-- [ ] Composables 单元测试
-- [ ] Stores 测试
-- [ ] Service Layer 测试
-- [ ] 关键组件 Component 测试
-- [ ] Playwright E2E（3 条核心路径）
-- [ ] 路由懒加载优化
-- [ ] 图片优化 + 懒加载
-- [ ] 可访问性审计与修复
-- [ ] Lighthouse 性能达标（≥90）
+- [x] Utils 单元测试（cn 等）
+- [x] Composables 单元测试（useTheme / useFormValidation）
+- [x] Service Layer 测试（projects.service 10 个）
+- [x] 关键组件 Component 测试（ProjectCard / EmptyState / LoadingSkeleton）
+- [x] Playwright E2E（3 条核心路径 9 用例全绿，CI 新增 e2e job）
+- [x] 路由懒加载优化（除首屏 HomeView 静态引入，其余全动态 import + vendor 分包）
+- [x] 图片优化 + 懒加载（coverUrl + loading=lazy + decoding=async + alt）
+- [x] 可访问性审计与修复（aria/label-for/focus-visible/reduced-motion，提交 b9fadd2）
+- [x] Lighthouse 性能达标（Performance 94 / A11y 94 / Best-Practices 100 / SEO 91，CLS=0）
 
 ---
 
@@ -310,4 +309,5 @@ Phase 6  Launch                ░░░░░░░░░░░░░░░░�
 |------|---------|------|
 | 2026-09-22 | Phase 0 完成（6 份文档） | 文档套件交付 |
 | 2026-09-22 | Phase 1 + 2 + 3 完成 | 全站前端 + 6 个 Lab 模块全部实现 |
-| 2026-09-22 | Phase 4 进行中（~60%） | Supabase + Auth + Admin Projects CRUD + i18n |
+| 2026-09-22 | Phase 4 完成 | Supabase + Auth + Admin CRUD + i18n 全量 + 真实项目数据 |
+| 2026-09-25 | Phase 5 完成 | 单测 34 全绿 + E2E 9 用例 + A11y 修复 + Lighthouse 94 |

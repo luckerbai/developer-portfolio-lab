@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import HomeView from '@/features/home/views/HomeView.vue'
 import { useAuth } from '@/composables/useAuth'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/features/home/views/HomeView.vue'),
+    // 首屏静态引入：消除路由懒加载期间的空渲染导致的 CLS
+    component: HomeView,
     meta: { title: 'Developer Portfolio Lab - Frontend Developer' },
   },
   {
@@ -155,10 +157,15 @@ export const router = createRouter({
 })
 
 // 全局路由守卫：认证检查 + 页面标题
+// 公开页面不等待 auth 初始化，避免阻塞首屏渲染（消除 CLS）
 router.beforeEach(async (to) => {
+  const isAdminRoute = to.meta.requiresAuth || to.name === 'admin-login'
+
+  if (!isAdminRoute) return
+
   const { isLoggedIn, loading } = useAuth()
 
-  // 等待 auth 初始化完成
+  // 仅 admin 路由等待 auth 初始化完成
   if (loading.value) {
     await new Promise(resolve => setTimeout(resolve, 100))
   }

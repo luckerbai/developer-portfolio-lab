@@ -48,11 +48,19 @@ const groupedSkills = computed(() => {
     </section>
 
     <!-- 核心技能 -->
-    <section v-if="!skillsLoading">
+    <section>
       <h2 class="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
         {{ t('resume.skills') }}
       </h2>
-      <div class="grid gap-6 sm:grid-cols-2">
+      <div v-if="skillsLoading" class="space-y-4">
+        <div class="h-4 bg-muted rounded w-32"></div>
+        <div class="flex flex-wrap gap-2">
+          <div class="h-6 bg-muted rounded-full w-20"></div>
+          <div class="h-6 bg-muted rounded-full w-24"></div>
+          <div class="h-6 bg-muted rounded-full w-16"></div>
+        </div>
+      </div>
+      <div v-else class="grid gap-6 sm:grid-cols-2">
         <div v-for="skillGroup in groupedSkills" :key="skillGroup.category">
           <h3 class="font-medium mb-3">{{ skillGroup.category }}</h3>
           <div class="flex flex-wrap gap-2">
@@ -69,11 +77,16 @@ const groupedSkills = computed(() => {
     </section>
 
     <!-- 工作经历 -->
-    <section v-if="!expLoading">
+    <section>
       <h2 class="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4">
         {{ t('resume.experience') }}
       </h2>
-      <div class="space-y-6">
+      <div v-if="expLoading" class="space-y-4">
+        <div class="h-5 bg-muted rounded w-2/3"></div>
+        <div class="h-4 bg-muted rounded w-1/3"></div>
+        <div class="h-4 bg-muted rounded w-1/2"></div>
+      </div>
+      <div v-else class="space-y-6">
         <div v-for="exp in experiences" :key="exp.id" class="border-b pb-6 last:border-0 last:pb-0">
           <div class="flex items-baseline justify-between mb-1">
             <h3 class="font-semibold">{{ exp.position }}</h3>
@@ -104,10 +117,5 @@ const groupedSkills = computed(() => {
         </li>
       </ul>
     </section>
-
-    <!-- 加载状态 -->
-    <div v-if="expLoading || skillsLoading" class="py-8 text-center text-muted-foreground">
-      {{ t('common.loading') }}
-    </div>
   </div>
 </template>
