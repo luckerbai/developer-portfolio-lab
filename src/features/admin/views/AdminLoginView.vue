@@ -19,8 +19,8 @@ async function handleSubmit() {
   try {
     await login(email.value, password.value)
     router.push('/admin')
-  } catch (e: any) {
-    error.value = e.message || t('admin.login.failed')
+  } catch (e) {
+    error.value = e instanceof Error ? e.message : t('admin.login.failed')
   } finally {
     loading.value = false
   }

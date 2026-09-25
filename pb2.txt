@@ -1,0 +1,17 @@
+﻿node.exe : Vercel CLI 59.26.0 (Node.js 22.23.2)
+所在位置 C:\Users\byd\AppData\Local\DoubaoWork\User Data\sandbox_runtime\bases\c98c5042338ed152c6f10ecd8591889f\node\pnpm.p
+s1:16 字符: 5
++     & "$basedir/node$exe"  "$basedir/node_modules/corepack/dist/pnpm. ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Vercel CLI 59.26.0 (Node.js 22.23.2):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Deploying developer-portfolio-lab
+Uploading [--------------------] (0.0B/155.3KB)
+Uploading [======--------------] (54.0KB/155.3KB)
+Uploading [===========---------] (86.0KB/155.3KB)
+Uploading [================----] (128.6KB/155.3KB)
+Uploading [====================] (155.3KB/155.3KB)
+  Inspect         https://vercel.com/luckerbais-projects/developer-portfolio-lab/7XrGouGgaeZ2JB8ALKV1Y11pnwCU
+  Production      https://developer-portfolio-h6t0x09sn-luckerbais-projects.vercel.app
+Building…
